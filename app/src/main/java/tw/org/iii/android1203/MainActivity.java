@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         fs[4] = new P4();
 
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        initActionBar();
         viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
             public void onPageSelected(int position) {
@@ -41,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(1);
                 }else if(position==4){
                     viewPager.setCurrentItem(3);
+                }else{
+                    actionBar.setSelectedNavigationItem(position-1);
                 }
             }
         });
             viewPager.setCurrentItem(1);
-            initActionBar();
+
     }
     private  void initActionBar(){
         actionBar = getSupportActionBar();
